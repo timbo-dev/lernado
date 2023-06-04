@@ -12,9 +12,9 @@ In Bash, the getopts is a built-in command that helps you parse command-line opt
 
 The syntax of the getopts command is as follows:
 
-bash
-Copy code
+```
 getopts optstring variable [args]
+```
 optstring is a string containing the option characters that your script supports. If a character is followed by a colon (```:```) in optstring, it indicates that the option requires an argument.
 variable is the name of the variable that will store the currently parsed option.
 args is an optional variable name that will store the remaining command-line arguments after all options have been processed.
