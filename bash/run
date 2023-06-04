@@ -1,0 +1,12 @@
+#!/bin/bash
+
+EXAMPLE=$(find . -name $1 -type f)
+
+if [ -z "$EXAMPLE" ]; then
+    echo "'$1' example not found"
+    exit 0;
+fi
+
+shift 1
+
+. $EXAMPLE $@
