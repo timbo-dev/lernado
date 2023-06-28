@@ -1,0 +1,11 @@
+#!/bin/sh
+
+copy_path=$PWD
+
+cd $1
+
+shift
+
+make $@
+
+cd $copy_path
