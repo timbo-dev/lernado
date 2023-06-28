@@ -74,3 +74,47 @@ Note that this example only shows the basic structure and usage of `initscr()`. 
 
 The `initscr()` function sets the foundation for creating text-based user interfaces with `ncurses`. Its initialization of the library and terminal screen setup enables the use of other `ncurses` functions to control screen output, handle user input, and create dynamic interfaces within the terminal environment.
 </details>
+<details>
+    <summary>
+        <h2>
+            endwin()
+        </h2>
+    </summary>
+
+This example showcases the usage of the `endwin()` function in an `ncurses` program. The `endwin()` function is responsible for cleaning up and restoring the terminal to its original state when working with the `ncurses` library.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Display a message on the screen
+    printw("Hello, ncurses!");
+
+    // Refresh the screen to display the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, we start by calling `initscr()` to initialize the `ncurses` library and prepare the terminal for interface creation.
+
+Using the `printw()` function, we display the message "Hello, ncurses!" on the screen.
+
+The `refresh()` function is then called to update the terminal screen and make the message visible.
+
+After waiting for user input using `getch()`, we use `endwin()` to clean up and restore the terminal to its original state before exiting the program. This ensures that the terminal returns to its normal behavior after running the `ncurses` program.
+
+The `endwin()` function is essential for proper termination of an `ncurses` program, as it ensures that any modifications made to the terminal are reverted, and the terminal can function as usual once the program is finished.
+</details>
