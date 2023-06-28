@@ -230,3 +230,71 @@ After calling `refresh()`, we use `getch()` to wait for user input and `endwin()
 The `refresh()` function is essential for ensuring that any modifications made to the `ncurses` windows or pads are reflected on the physical screen. It allows you to update the display and show the changes made to the virtual screen.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            getch();
+        </h2>
+    </summary>
+
+The `getch()` function in the `ncurses` library is used to capture a single character of input from the user. It allows you to wait for user input and retrieve the corresponding character code or key code.
+
+## Syntax
+
+The syntax for the `getch()` function is as follows:
+
+```c
+int getch(void);
+```
+
+The function does not require any parameters and returns an integer value representing the captured character or key code.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Display a prompt
+    printw("Press any key to continue...");
+
+    // Refresh the screen to display the prompt
+    refresh();
+
+    // Wait for user input
+    int ch = getch();
+
+    // Display the captured key code
+    printw("\nKey code: %d", ch);
+
+    // Refresh the screen to display the key code
+    refresh();
+
+    // Wait for additional user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `printw()` function to display the prompt "Press any key to continue..." on the terminal screen.
+
+We then call `refresh()` to update the screen and make the prompt visible.
+
+Next, we use `getch()` to wait for user input and capture the key code entered by the user. The captured key code is stored in the variable `ch`.
+
+We then use `printw()` again to display the captured key code on the screen, using the format specifier `%d` to print the integer value.
+
+After displaying the key code, we call `refresh()` again to update the screen and make the key code visible.
+
+Finally, we use another `getch()` to wait for additional user input before cleaning up and restoring the terminal state with `endwin()`.
+
+The `getch()` function is essential for capturing user input in `ncurses` programs, allowing you to implement interactive behavior and respond to user actions within your text-based interface.
+
+</details>
