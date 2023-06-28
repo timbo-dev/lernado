@@ -417,3 +417,69 @@ We use `getch()` to wait for user input before cleaning up and restoring the ter
 The `mvprintw()` function provides a convenient way to move the cursor to a specific position on the terminal screen and print formatted text at that position within your `ncurses` interface.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            clear();
+        </h2>
+    </summary>
+
+The `clear()` function in the `ncurses` library is used to clear the entire terminal screen. It removes all previously displayed content and resets the cursor position to the top-left corner.
+
+## Syntax
+
+The syntax for the `clear()` function is as follows:
+
+```c
+int clear(void);
+```
+
+The function does not require any parameters and returns `OK` (a predefined constant with a value of 0) upon success, and `ERR` (another predefined constant with a value of -1) upon failure.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Display a message on the screen
+    printw("Hello, ncurses!");
+
+    // Refresh the screen to display the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clear the screen
+    clear();
+
+    // Refresh the screen to show the cleared screen
+    refresh();
+
+    // Wait for additional user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `printw()` function to display the message "Hello, ncurses!" on the terminal screen.
+
+We then call `refresh()` to update the screen and make the message visible.
+
+After waiting for user input with `getch()`, we use the `clear()` function to clear the entire screen. This removes the previously displayed content and resets the cursor position to the top-left corner.
+
+We call `refresh()` again to update the screen and show the cleared screen.
+
+Finally, we use another `getch()` to wait for additional user input before cleaning up and restoring the terminal state with `endwin()`.
+
+The `clear()` function is useful when you want to remove all content from the terminal screen and start with a blank canvas for your `ncurses` interface.
+
+</details>
