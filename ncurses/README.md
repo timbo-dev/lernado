@@ -77,7 +77,7 @@ The `initscr()` function sets the foundation for creating text-based user interf
 <details>
     <summary>
         <h2>
-            endwin()
+            endwin();
         </h2>
     </summary>
 
@@ -117,4 +117,63 @@ The `refresh()` function is then called to update the terminal screen and make t
 After waiting for user input using `getch()`, we use `endwin()` to clean up and restore the terminal to its original state before exiting the program. This ensures that the terminal returns to its normal behavior after running the `ncurses` program.
 
 The `endwin()` function is essential for proper termination of an `ncurses` program, as it ensures that any modifications made to the terminal are reverted, and the terminal can function as usual once the program is finished.
+</details>
+<details>
+    <summary>
+        <h2>
+            printw();
+        </h2>
+    </summary>
+
+The `printw()` function in the `ncurses` library is used to display formatted text on the terminal screen. It allows you to print text at the current cursor position or at a specified location within a window.
+
+The function works similarly to `printf()` from the standard C library, but instead of printing to the standard output, it prints to the `ncurses` window or pad.
+
+## Syntax
+
+The syntax for the `printw()` function is as follows:
+
+```c
+int printw(const char *format, ...);
+```
+
+The `format` parameter is a string that may contain format specifiers, similar to the `printf()` function. The additional arguments are the values to be inserted into the format string based on the format specifiers.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Print a formatted message
+    printw("Hello, %s!", "ncurses");
+
+    // Refresh the screen to display the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `printw()` function to display the message "Hello, ncurses!" on the terminal screen.
+
+The format specifier `%s` is used in the format string to indicate where the string `"ncurses"` should be inserted. In this case, the resulting message will be "Hello, ncurses!".
+
+After printing the message, we call `refresh()` to update the screen and make the message visible.
+
+Finally, we use `getch()` to wait for user input and `endwin()` to clean up and restore the terminal before exiting the program.
+
+Note that you can use various format specifiers in the `printw()` function, just like in `printf()`, to display different types of data such as integers, floats, and characters.
+
+The `printw()` function is a convenient way to display formatted text within an `ncurses` program, enabling you to create dynamic and informative text-based interfaces.
+
 </details>
