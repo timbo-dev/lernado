@@ -483,3 +483,81 @@ Finally, we use another `getch()` to wait for additional user input before clean
 The `clear()` function is useful when you want to remove all content from the terminal screen and start with a blank canvas for your `ncurses` interface.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            newwin();
+        </h2>
+    </summary>
+
+The `newwin()` function in the `ncurses` library is used to create a new window within the terminal screen. Windows are separate areas that can be used to display content independently from the main window.
+
+## Syntax
+
+The syntax for the `newwin()` function is as follows:
+
+```c
+WINDOW *newwin(int nlines, int ncols, int begin_y, int begin_x);
+```
+
+The `nlines` parameter specifies the number of lines (height) of the new window, and the `ncols` parameter specifies the number of columns (width) of the new window. Both `nlines` and `ncols` must be positive values.
+
+The `begin_y` parameter represents the starting row coordinate of the new window, and the `begin_x` parameter represents the starting column coordinate. Both `begin_y` and `begin_x` are zero-based, meaning the top-left corner of the screen is `(0, 0)`.
+
+The function returns a pointer to the newly created window (`WINDOW*`) upon success, and `NULL` upon failure.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Create a new window
+    WINDOW *new_window = newwin(10, 20, 5, 10);
+
+    // Check if the new window was created successfully
+    if (new_window == NULL) {
+        printw("Failed to create a new window!");
+        refresh();
+        getch();
+        endwin();
+        return 1;
+    }
+
+    // Print a message in the new window
+    mvwprintw(new_window, 2, 5, "Hello, new window!");
+
+    // Refresh the standard window to display the message
+    refresh();
+
+    // Refresh the new window to display the message
+    wrefresh(new_window);
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, we demonstrate the usage of the `newwin()` function to create a new window within the terminal screen. 
+
+After initializing `ncurses` with `initscr()`, we call `newwin()` to create a new window with a height of 10 lines and a width of 20 columns. The new window is positioned starting at row 5 and column 10 on the screen.
+
+We then check if the new window was created successfully by verifying if the returned pointer is `NULL`. If the new window creation fails, an error message is printed, and the program exits.
+
+If the new window is created successfully, we use the `mvwprintw()` function to print the message "Hello, new window!" at row 2, column 5 within the new window. Note that `mvwprintw()` is used to print within the specific window, unlike `printw()` which prints to the standard window.
+
+To ensure the message is visible, we call `refresh()` to update the standard window and `wrefresh(new_window)` to update and display the content of the new window.
+
+We use `getch()` to wait for user input before cleaning up and restoring the terminal state with `endwin()`.
+
+The `newwin()` function provides a way to create separate windows within the terminal screen, allowing you to build more complex interfaces and display different content in different areas of the screen.
+
+</details>
