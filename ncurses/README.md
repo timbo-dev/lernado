@@ -298,3 +298,63 @@ Finally, we use another `getch()` to wait for additional user input before clean
 The `getch()` function is essential for capturing user input in `ncurses` programs, allowing you to implement interactive behavior and respond to user actions within your text-based interface.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            move();
+        </h2>
+    </summary>
+
+The `move()` function in the `ncurses` library is used to move the cursor to a specific position on the terminal screen. It allows you to control where subsequent output will be displayed.
+
+## Syntax
+
+The syntax for the `move()` function is as follows:
+
+```c
+int move(int y, int x);
+```
+
+The `y` parameter represents the row coordinate, and the `x` parameter represents the column coordinate. Both `y` and `x` are zero-based, meaning the top-left corner of the screen is `(0, 0)`.
+
+The function returns `OK` (a predefined constant with a value of 0) upon success, and `ERR` (another predefined constant with a value of -1) upon failure.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Move the cursor to row 5, column 10
+    move(5, 10);
+
+    // Print a message at the moved cursor position
+    printw("Moved cursor!");
+
+    // Refresh the screen to display the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `move()` function to move the cursor to row 5, column 10 on the terminal screen.
+
+We then use the `printw()` function to print the message "Moved cursor!" at the moved cursor position.
+
+After printing the message, we call `refresh()` to update the screen and make the message visible.
+
+We use `getch()` to wait for user input before cleaning up and restoring the terminal state with `endwin()`.
+
+The `move()` function is useful for positioning the cursor to specific locations on the terminal screen, allowing you to precisely control where text and other output will be displayed within your `ncurses` interface.
+
+</details>
