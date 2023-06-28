@@ -20,3 +20,5 @@ Nathan Rocha
 ## Technologies
 
 * [Bash](https://github.com/timbo-dev/lernado/blob/main/bash/README.md)
+* [Makefile](https://github.com/timbo-dev/lernado/blob/main/Makefile/README.md)
+* [Ncurses](https://github.com/timbo-dev/lernado/blob/main/ncurses/README.md)
