@@ -358,3 +358,62 @@ We use `getch()` to wait for user input before cleaning up and restoring the ter
 The `move()` function is useful for positioning the cursor to specific locations on the terminal screen, allowing you to precisely control where text and other output will be displayed within your `ncurses` interface.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            mvprintw();
+        </h2>
+    </summary>
+
+The `mvprintw()` function in the `ncurses` library is used to move the cursor to a specific position on the terminal screen and print formatted text at that position. It combines the functionality of the `move()` and `printw()` functions into a single call.
+
+## Syntax
+
+The syntax for the `mvprintw()` function is as follows:
+
+```c
+int mvprintw(int y, int x, const char *format, ...);
+```
+
+The `y` parameter represents the row coordinate, and the `x` parameter represents the column coordinate. Both `y` and `x` are zero-based, meaning the top-left corner of the screen is `(0, 0)`.
+
+The `format` parameter is a string that may contain format specifiers, similar to the `printf()` function. The additional arguments are the values to be inserted into the format string based on the format specifiers.
+
+The function returns `OK` (a predefined constant with a value of 0) upon success, and `ERR` (another predefined constant with a value of -1) upon failure.
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Move the cursor to row 5, column 10 and print a formatted message
+    mvprintw(5, 10, "Position: (%d, %d)", 5, 10);
+
+    // Refresh the screen to display the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `mvprintw()` function to move the cursor to row 5, column 10 on the terminal screen and print the formatted message "Position: (5, 10)".
+
+The format specifier `%d` is used in the format string to indicate where the integer values 5 and 10 should be inserted. In this case, the resulting message will be "Position: (5, 10)".
+
+After printing the message, we call `refresh()` to update the screen and make the message visible.
+
+We use `getch()` to wait for user input before cleaning up and restoring the terminal state with `endwin()`.
+
+The `mvprintw()` function provides a convenient way to move the cursor to a specific position on the terminal screen and print formatted text at that position within your `ncurses` interface.
+
+</details>
