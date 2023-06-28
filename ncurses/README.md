@@ -177,3 +177,56 @@ Note that you can use various format specifiers in the `printw()` function, just
 The `printw()` function is a convenient way to display formatted text within an `ncurses` program, enabling you to create dynamic and informative text-based interfaces.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            refresh();
+        </h2>
+    </summary>
+
+The `refresh()` function in the `ncurses` library is used to update the physical screen with the contents of the virtual screen. It is an important function for displaying any changes made to the `ncurses` windows or pads.
+
+When you modify the content of a window or pad using various `ncurses` functions like `printw()`, `mvprintw()`, or `wprintw()`, the changes are not immediately visible on the physical screen. Instead, they are stored in a virtual screen buffer. The `refresh()` function is responsible for updating the physical screen to reflect the changes made to the virtual screen.
+
+## Syntax
+
+The `refresh()` function does not take any arguments. Its syntax is as follows:
+
+```c
+int refresh(void);
+```
+
+## Example
+
+```c
+#include <ncurses.h>
+
+int main() {
+    // Initialize ncurses
+    initscr();
+
+    // Display a message on the virtual screen
+    printw("Hello, ncurses!");
+
+    // Update the physical screen to show the message
+    refresh();
+
+    // Wait for user input
+    getch();
+
+    // Clean up and restore terminal state
+    endwin();
+
+    return 0;
+}
+```
+
+In this example, after initializing `ncurses` with `initscr()`, we use the `printw()` function to display the message "Hello, ncurses!" on the virtual screen.
+
+To make the message visible on the physical screen, we call the `refresh()` function. This updates the physical screen with the contents of the virtual screen, causing the message to be displayed.
+
+After calling `refresh()`, we use `getch()` to wait for user input and `endwin()` to clean up and restore the terminal before exiting the program.
+
+The `refresh()` function is essential for ensuring that any modifications made to the `ncurses` windows or pads are reflected on the physical screen. It allows you to update the display and show the changes made to the virtual screen.
+
+</details>
