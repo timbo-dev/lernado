@@ -561,3 +561,69 @@ We use `getch()` to wait for user input before cleaning up and restoring the ter
 The `newwin()` function provides a way to create separate windows within the terminal screen, allowing you to build more complex interfaces and display different content in different areas of the screen.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            box();
+        </h2>
+    </summary>
+
+The `box()` function in the ncurses library is used to draw a box or a border around a window or a specified region of the screen. It creates a visible boundary that can be used to visually separate content or provide a decorative element in your ncurses application.
+
+Syntax
+The syntax for the `box()` function is as follows:
+
+```c
+int box(WINDOW *win, chtype verch, chtype horch);
+```
+
+- The `win` parameter is a pointer to the window on which the box should be drawn. It can be a standard window or a user-created window using the `newwin()` function.
+
+- The `verch` parameter specifies the character to be used for the vertical lines of the box, and the `horch` parameter specifies the character to be used for the horizontal lines of the box. Both `verch` and `horch` can be any valid character from the `chtype` type.
+
+- The function returns `OK` (a predefined constant with a value of 0) upon success, and `ERR` (another predefined constant with a value of -1) upon failure.
+
+Example
+```c
+#include <ncurses.h>
+
+int main() {
+    initscr(); // Initialize ncurses
+
+    int height, width, start_y, start_x;
+
+    height = 10;
+    width = 20;
+    start_y = start_x = 0;
+
+    WINDOW *win = newwin(height, width, start_y, start_x); // Create a new window with specified dimensions and starting position
+
+    refresh(); // Refresh the standard screen
+
+    box(win, 0, 0); // Draw a box around the window
+    mvwprintw(win, 1, 1, "Hello World"); // Print "Hello World" at row 1, column 1 within the window
+    wrefresh(win); // Refresh the window to display the changes
+
+    int c = getch(); // Wait for user input and store the pressed key in 'c'
+
+    endwin(); // Clean up and restore the terminal state
+
+    return 0;
+}
+```
+
+In this example, after initializing ncurses with `initscr()`, we create a new window using `newwin()` with a height of 10 lines and a width of 20 columns. The new window is positioned starting at row 0 and column 0 on the screen.
+
+The `refresh()` function is called to refresh the standard screen.
+
+We then use `box(win, 0, 0)` to draw a box around the window. The `0` arguments specify that the default characters for the vertical and horizontal lines should be used.
+
+To display the text "Hello World" within the window, we use `mvwprintw(win, 1, 1, "Hello World")`. This function prints the specified string at row 1, column 1 within the window.
+
+The `wrefresh(win)` function is called to refresh the window and display the changes on the screen.
+
+Lastly, `getch()` is used to wait for user input, and `endwin()` is called to clean up and restore the terminal state.
+
+The `box()` function is a simple yet effective way to add a visual boundary or decorative element around a window or a specific region of the screen in your ncurses application.
+
+</details>
