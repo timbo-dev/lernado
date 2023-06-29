@@ -627,3 +627,61 @@ Lastly, `getch()` is used to wait for user input, and `endwin()` is called to cl
 The `box()` function is a simple yet effective way to add a visual boundary or decorative element around a window or a specific region of the screen in your ncurses application.
 
 </details>
+<details>
+    <summary>
+        <h2>
+            raw();
+        </h2>
+    </summary>
+
+The `raw()` function is a part of the ncurses library and is used to put the terminal into raw mode. In raw mode, input characters are passed directly to the program without any line buffering or processing. This allows the program to read individual keystrokes and perform immediate actions based on user input.
+
+Syntax
+The syntax for the `raw()` function is as follows:
+
+```c
+int raw(void);
+```
+
+The function takes no arguments and returns an integer value. It returns `OK` (a predefined constant with a value of 0) upon success and `ERR` (another predefined constant with a value of -1) upon failure.
+
+Example
+```c
+#include <ncurses.h>
+
+int main() {
+    initscr(); // Initialize ncurses
+
+    raw(); // Put the terminal into raw mode
+
+    printw("Press CTRL + C: ");
+    refresh();
+
+    int c = getch(); // Read a single character from the user
+
+    printw("\nYou entered: %c\n", c);
+    refresh();
+
+    getch(); // Wait for another character before exiting
+
+    endwin(); // Clean up and restore the terminal state
+
+    return 0;
+}
+```
+
+In this example, we initialize ncurses with `initscr()` and then use the `raw()` function to put the terminal into raw mode. This ensures that input characters are immediately passed to the program without waiting for a newline character.
+
+After putting the terminal into raw mode, we use `printw()` to display a prompt message asking the user to type any character. The `refresh()` function is called to update the screen.
+
+We then use `getch()` to read a single character from the user. Since we are in raw mode, each keystroke will be immediately returned as input without buffering.
+
+After reading the character, we use `printw()` to display the entered character on a new line. The `refresh()` function is called again to update the screen.
+
+Finally, we use `getch()` to wait for another character before exiting the program. This provides an opportunity to observe the entered character before the program terminates.
+
+The `endwin()` function is called to clean up and restore the terminal state.
+
+The `raw()` function is useful when you need fine-grained control over user input and want to process individual keystrokes in real-time without any line buffering or input processing.
+
+</details>
