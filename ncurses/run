@@ -14,11 +14,12 @@ for file in $files_target; do
   object_target=$(echo $file | sed -r "s/\.c/.o/g")
   file_target=$(echo $file | sed -r "s/\.c/.run/g")
 
-  gcc -c $file -o $object_target
-  gcc $object_file -o $file_target -lncurses
+  echo $file_target
 
-  ./$file_target
+  gcc -c $file -o $object_target
+  gcc $object_target -o $file_target -lncurses
+
+  $file_target
 
   rm -f $object_target $file_target
-
 done
