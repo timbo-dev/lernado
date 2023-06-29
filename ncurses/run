@@ -1,8 +1,24 @@
 #!/bin/sh
 
-cd $1
+readonly files_target=$(  \
+  find $1                 \
+  -not -name "README.md"  \
+  -not -name ".gitignore" \
+)
 
-gcc -c $1.c -o $1.out && gcc $1.out -o $1 -lncurses
-./$1
-rm -f $1 $1.out
-cd ..
+for file in $files_target; do
+  if [ ! -f $file ] || [ $file == $0 ]; then
+    continue
+  fi
+
+  object_target=$(echo $file | sed -r "s/\.c/.o/g")
+  file_target=$(echo $file | sed -r "s/\.c/.run/g")
+
+  gcc -c $file -o $object_target
+  gcc $object_file -o $file_target -lncurses
+
+  ./$file_target
+
+  rm -f $object_target $file_target
+
+done
