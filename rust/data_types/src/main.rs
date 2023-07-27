@@ -54,4 +54,26 @@ fn main() {
     println!("Float f64 precision equality: 0.1 + 0.2 == 0.3 -> {}", 0.1 + 0.2 == 0.3);
     // I don't know yet but f32 solves the little mess of approximate numbers to this calculation
     println!("Float f32 precision equality: 0.1 + 0.2 == 0.3 -> {}", float_32_bits_precision == float_32_bits_parameter);
+
+    // Numeric Operations
+
+    println!("");
+    println!("Numeric Operations");
+    println!("");
+
+    let sum = 5 + 10;
+    let difference = 95.5 - 4.3;
+    let product = 4 * 30;
+    let quotient = 56.7 / 32.2;
+    let truncated = -5 / 3; // Results in -1
+    let remainder = 43 % 5;
+
+    println!("Sum: {}", sum); // sum
+    println!("Difference: {}", difference); // subtraction
+    println!("Product: {}", product); // multiplication
+    println!("Quotient: {}", quotient); // division
+    println!("Truncated: {}", truncated);
+    println!("Remainder: {}", remainder); // remainder
+
+    
 }
