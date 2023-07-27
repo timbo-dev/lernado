@@ -87,4 +87,19 @@ fn main() {
     println!("True Boolean: {}", true_boolean);
     println!("False Boolean: {}", false_boolean);
     
+    // Char
+
+    println!("");
+    println!("Char");
+    println!("");
+
+    let char_value: char = 'z';
+    let more_one_byte_char: char = 'ℤ';
+    let emoji_char: char = '😻';
+
+    println!("Char Value: {}", char_value);
+    println!("More One Byte Char: {}", more_one_byte_char);
+    println!("Emoji Char: {}", emoji_char);
+
+        
 }
