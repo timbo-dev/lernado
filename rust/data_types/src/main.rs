@@ -75,5 +75,16 @@ fn main() {
     println!("Truncated: {}", truncated);
     println!("Remainder: {}", remainder); // remainder
 
+    // Boolean
+
+    println!("");
+    println!("Boolean");
+    println!("");
+
+    let true_boolean: bool = true;
+    let false_boolean: bool = false;
+    
+    println!("True Boolean: {}", true_boolean);
+    println!("False Boolean: {}", false_boolean);
     
 }
