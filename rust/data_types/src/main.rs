@@ -37,4 +37,21 @@ fn main() {
     println!("Binary with underscore: {}", binary_with_underscore);
     println!("Byte: {}", byte);
 
+    // By default rust use f64 for float numbers
+
+    let float_64_bits = 2.0;
+    let float_32_bits: f32 = 2.0;
+
+    let float_32_bits_precision: f32 = 0.1 + 0.2;
+    let float_32_bits_parameter: f32 = 0.3;
+
+    println!("");
+    println!("Floats");
+    println!("");
+    println!("Float f64: {}", float_64_bits);
+    println!("Float f32: {}", float_32_bits);
+    println!("Equality of floats type: float_64_bits == float_32_bits -> {}", float_64_bits == float_32_bits);
+    println!("Float f64 precision equality: 0.1 + 0.2 == 0.3 -> {}", 0.1 + 0.2 == 0.3);
+    // I don't know yet but f32 solves the little mess of approximate numbers to this calculation
+    println!("Float f32 precision equality: 0.1 + 0.2 == 0.3 -> {}", float_32_bits_precision == float_32_bits_parameter);
 }
