@@ -121,5 +121,47 @@ fn main() {
     println!("Access tuple from dot 1: {}", tuple.1);
     println!("Access tuple from dot 2: {}", tuple.2);
 
+    // Array type
+
+    println!("");
+    println!("Array");
+    println!("");
+
+    let array = [1, 2, 3, 4, 5];
+    
+    let mut i = 0;
+
+    while i < array.len() {
+        println!("Array element [{i}]: {}", array[i]);
+        i += 1;
+    }
+
+    let months = [
+        "January", 
+        "February", 
+        "March", 
+        "April", 
+        "May", 
+        "June", 
+        "July", 
+        "August", 
+        "September", 
+        "October", 
+        "November", 
+        "December"
+    ];
+
+    i = 0;
+    
+    println!("");
+
+    while i < months.len() {
+        println!("Array element [{i}]: {}", months[i]);
+        i += 1;
+    }
+
+    // let a: [i32; 5] = [1, 2, 3, 4, 5];
+    let a = [3; 5];
         
+    println!("Array 'a' [{},{},{},{},{}]", a[0], a[1], a[2], a[3], a[4]);
 }
