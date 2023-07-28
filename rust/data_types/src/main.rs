@@ -101,5 +101,25 @@ fn main() {
     println!("More One Byte Char: {}", more_one_byte_char);
     println!("Emoji Char: {}", emoji_char);
 
+    // Compund types
+
+    // Tuple type
+
+    println!("");
+    println!("Tuple");
+    println!("");
+
+    let tuple: (i32, f64, u8) = (500, 6.4, 1);
+
+    let (first, second, third) = tuple;
+
+    println!("Desctructured tuple first: {first}");
+    println!("Desctructured tuple second: {second}");
+    println!("Desctructured tuple third: {third}");
+
+    println!("Access tuple from dot 0: {}", tuple.0);
+    println!("Access tuple from dot 1: {}", tuple.1);
+    println!("Access tuple from dot 2: {}", tuple.2);
+
         
 }
