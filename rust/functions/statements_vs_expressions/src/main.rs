@@ -7,7 +7,8 @@ fn main() {
     // The curly brackets is a expression because don't have the semicolon at the end
     let y = {
         let x = 3;
-        x + 1 // Don't have the semicolon at the end
+        x + 1 // Don't have the semicolon at the end transforming this curly brackets into a expression
+        // evaluating for the number 4 and attribute then for y variable
     };
 
     println!("The value of y is: {y}");
