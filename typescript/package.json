@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "name": "typescript-tsconfig",
+    "version": "1.0.0",
+    "author": {
+      "name": "timbo-dev",
+      "email": "dev@timbo.me",
+      "url": "https://timbo.me"
+    },
+    "license": "MIT",
+    "devDependencies": {
+      "typescript": "^5.8.3"
+    }
+  }
+  
