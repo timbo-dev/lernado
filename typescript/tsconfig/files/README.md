@@ -27,6 +27,28 @@ Especifica uma lista explícita (allowlist) de arquivos a serem incluídos no pr
 }
 ```
 
+### Testes para `files` no tsconfig
+
+Este package contém testes para validar o comportamento da propriedade `files` no `tsconfig.json`.
+
+### Como testar
+
+Execute os comandos abaixo na raiz do projeto:
+
+- Para testar um `tsconfig` válido:
+    ```sh
+    npm run build:valid
+    ```
+    **Comportamento esperado:** A compilação deve ocorrer sem erros, pois todos os arquivos listados em `files` existem.
+
+- Para testar um `tsconfig` inválido (por exemplo, com arquivos inexistentes em `files`):
+    ```sh
+     npm run build:invalid
+     ```
+     **Comportamento esperado:** O compilador deve emitir um erro informando que um ou mais arquivos listados em `files` não foram encontrados. O TypeScript carrega os arquivos especificados até tentar compilar um arquivo inexistente; nesse momento, ele exibe o erro, interrompe o processo e retorna o exit code 2.
+
+---
+
 ### 📌 Observações
 
 * Útil quando você quer compilar um número pequeno e bem definido de arquivos.
