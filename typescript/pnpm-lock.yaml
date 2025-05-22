@@ -12,6 +12,10 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
+  tsconfig/files: {}
+
+  tsconfig/nullable-properties: {}
+
 packages:
 
   typescript@5.8.3:
