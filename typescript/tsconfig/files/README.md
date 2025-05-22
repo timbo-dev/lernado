@@ -1,8 +1,8 @@
 # Files
 
-**Tipo:** `string[]`
-**Introduzido em:** TypeScript 1.5
-**Relacionado:** `include`, `exclude`
+* **Tipo:** `string[]`
+* **Introduzido em:** TypeScript 1.5
+* **Relacionado:** `include`, `exclude`
 
 Especifica uma lista explícita (allowlist) de arquivos a serem incluídos no programa.
 
