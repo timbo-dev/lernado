@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "name": "files",
+    "scripts": {
+        "build:valid": "tsc -p tsconfig.valid.json",
+        "build:invalid": "tsc -p tsconfig.invalid.json"
+    }
+}

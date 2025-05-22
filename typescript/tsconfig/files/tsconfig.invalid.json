@@ -1,0 +1,8 @@
+{
+    "extends": "./tsconfig.base.json",
+    "files": [
+        "src/system.ts",
+        "src/utils.ts",
+        "src/extra.ts", // This file dosen't exist
+    ]
+}
