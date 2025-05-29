@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "name": "tsconfig-extends-demo",
+    "scripts": {
+        "basic": "tsc -p examples/1-basic/tsconfig.json",
+        "references": "tsc -b examples/2-references/",
+        "circular": "tsc -p examples/3-circular/tsconfig.a.json",
+        "strict": "tsc -p examples/4-strict-null-checks/tsconfig.strict.json",
+        "nonstrict": "tsc -p examples/4-strict-null-checks/tsconfig.nonstrict.json"
+    }
+}

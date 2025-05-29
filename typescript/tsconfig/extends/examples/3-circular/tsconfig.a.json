@@ -1,0 +1,6 @@
+{
+    "extends": "./tsconfig.b.json",
+    "compilerOptions": {
+        "target": "ES2020"
+    }
+}

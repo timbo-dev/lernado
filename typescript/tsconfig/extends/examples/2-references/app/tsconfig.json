@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "tsBuildInfoFile": "../dist/app.tsbuildinfo",
+        "rootDir": "./"
+    },
+    "include": ["app.ts"],
+    "references": [{ "path": "../lib" }]
+}
